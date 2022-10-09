@@ -1,11 +1,8 @@
 const initialState = {
-    books: [
-        {
-            id:0,
-            title: 'Hello Word'
-        }
-        
-    ],
+    isReady: false,
+    items: null,
+
+
 
 }
 
@@ -15,18 +12,19 @@ export default (state = initialState, action) => {
         case 'SET_BOOKS':
             return {
                 ...state,
-                books: action.payload
-                
+                items: action.payload,
+                isReady: true,
             }
-        case 'ADD_BOOKS':
+
+        case 'SET_IS_READY':
             return {
                 ...state,
-                books: [
-                    ...state.books,
-                    action.payload
-                ]
-            }
-        default: return state;
+                isReady: action.payload
+            };
+            break;
+             
+        default:
+            return state;
 
     }
 }
