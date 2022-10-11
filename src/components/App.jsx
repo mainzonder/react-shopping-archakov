@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { setBooks } from './actions/books'
-import axios from 'axios'
 import { Container } from 'semantic-ui-react';
-
-import MenuComponent from './components/Menu';
-import BookCard from './components/BookCard';
-
+import axios from 'axios'
+import MenuComponent from '../components/Menu';
+import BookCard from '../components/BookCard';
+import FilterComponent from '../containers/Filter'
+ 
 
 
 
@@ -21,12 +19,14 @@ class App extends Component {
 
 
 	render() {
-		const { books, isReady } = this.props;
+		const { books, isReady  } = this.props;
 
 		return (
 			<>
 				<Container>
 					<MenuComponent />
+<FilterComponent />
+
 					<div class="ui four cards">
 						{!isReady ? 'LOADING...'
 							: books.map((book, i) =>
@@ -34,23 +34,8 @@ class App extends Component {
 				</Container>
 
 			</>
-
-
-
 		)
-
-
 	}
-
 }
 
-const mapStateToProps = ({ books }) => ({
-	books: books.items,
-	isReady: books.isReady,
-})
-const mapDispatchToProps = dispatch => ({
-	setBooks: books => dispatch(setBooks(books))
-})
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default  App;
