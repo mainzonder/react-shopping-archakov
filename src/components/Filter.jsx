@@ -1,8 +1,8 @@
-import React  from 'react';
-import {Input, Menu } from 'semantic-ui-react';
+import React from 'react';
+import {  Input, Menu } from 'semantic-ui-react';
 
 
-const Filter = ({ setFilter, filterBy }) => {
+const Filter = ({ setFilter, filterBy ,setSearchQuery}) => {
 
 
 
@@ -45,9 +45,14 @@ const Filter = ({ setFilter, filterBy }) => {
 
       >
         Автор
-      </Menu.Item >
+      </Menu.Item>
 
-
+      <Menu.Item>
+        <Input icon ='search' 
+         onChange={e=>setSearchQuery(e.target.value)}
+        //  value='searchQuery' 
+         placeholder="Введите запрос ..." />
+      </Menu.Item>
 
 
     </div>

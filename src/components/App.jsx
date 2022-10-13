@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
+
 import axios from 'axios'
-import MenuComponent from '../components/Menu';
-import BookCard from '../components/BookCard';
-import FilterComponent from '../containers/Filter'
+
  
+import BookCard from '../containers/BookCard';
+ 
+import FilterComponent from '../containers/Filter'
+import MenuComponent from '../containers/Menu';
+
+
 
 
 
@@ -19,13 +24,13 @@ class App extends Component {
 
 
 	render() {
-		const { books, isReady  } = this.props;
+		const { books, isReady } = this.props;
 
 		return (
 			<>
 				<Container>
 					<MenuComponent />
-<FilterComponent />
+					<FilterComponent />
 
 					<div class="ui four cards">
 						{!isReady ? 'LOADING...'
@@ -38,4 +43,4 @@ class App extends Component {
 	}
 }
 
-export default  App;
+export default App;

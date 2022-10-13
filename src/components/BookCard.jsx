@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
+import { Card, Image, Icon, Button } from "semantic-ui-react";
 
- 
+const BookCard = book => {
+    const { title, author, price, image, addToCart ,addedCount} = book;
 
-const BookCard = ({title,author,price,image}) => (
-
-    <div class="ui card">
+    return (<div class="ui card">
         <div class="image">
             <img src={image} />
         </div>
@@ -14,19 +14,23 @@ const BookCard = ({title,author,price,image}) => (
             <div class="meta">
                 <span class="date">{author}</span>
             </div>
-            
-            <div class="description">
-                Kristy is an art director living in New York.
-            </div>
+
+            <div class="description"></div>
         </div>
         <div class="extra content">
             <a>
                 <i class="eur icon"></i>
-             {price}
+                {price}
             </a>
         </div>
-    </div>
 
-)
+        <Button onClick={ addToCart.bind(this, book)}>
+            Добавить в корзину
+            {addedCount > 0 && `(${addedCount})`}
+              </Button>
+    </div>
+    )
+
+};
 
 export default BookCard;
